@@ -14,6 +14,8 @@ app.get('/', function(req, res){
   res.send("Hello world!");
 });
 
+routes = require('./routes/todo')(app);
+
 mongoose.connect('mongodb://localhost/todo', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
