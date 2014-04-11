@@ -5,24 +5,22 @@ module.exports = function(app){
   findAllTodos = function(req, res){
     Todo.find(function(err, todos) {
       if(!err) {
-        console.log('GET');
         res.send(todos);
       } else {
-	      console.log('ERROR: ' + err);
-      }
-    });
+       console.log('ERROR: ' + err);
+     }
+   });
   };
 
   // GET
   findById = function(req, res){
     Todo.findById(req.params.id, function(err, todo) {
       if(!err){
-        console.log(req.params.id);
         res.send(todo);
       } else {
-	console.log('ERROR: ' + err);
-      }
-    });
+       console.log('ERROR: ' + err);
+     }
+   });
   };
 
   // POST
@@ -56,16 +54,15 @@ module.exports = function(app){
 
       todo.save(function(err){
         if(!err) {
-  	  console.log('Updated');
-        } else {
-	  console.log('ERROR: ' + err);
-	}
+         console.log('Updated');
+       } else {
+         console.log('ERROR: ' + err);
+       }
 
-	res.send(todo);
-      });
+       res.send(todo);
+     });
     });
   };
-
 
   // DELETE
   deleteTodo = function(req, res) {
